@@ -17,6 +17,7 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        veletlenszeruLike();
         System.out.println(bejegyzesek);
     }
     private static void bejegyzesekHozzaadasa() {
@@ -24,6 +25,12 @@ public class Main {
         Bejegyzes teszt2 = new Bejegyzes("JohnDoe", "Ez egy teszt...");
         bejegyzesek.add(teszt1);
         bejegyzesek.add(teszt2);
+    }
+    private static void veletlenszeruLike() {
+        for (int i = 0; i < 20*bejegyzesek.size(); i++) {
+            int index = (int) (Math.random() * bejegyzesek.size());
+            bejegyzesek.get(index).like();
+        }
     }
     private static void bejegyzesekFelveteleKonzolrol() {
         System.out.print("Kérem adja meg, hogy hány bejegyzést szeretne írni: ");

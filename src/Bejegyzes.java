@@ -32,10 +32,8 @@ public class Bejegyzes {
     public void setTartalom(String tartalom) {
         this.tartalom = tartalom;
     }
-    public void like(int i) {
-        for (int j = 0; j < i; j++) {
-            this.likeok++;
-        }
+    public void like() {
+        this.likeok++;
     }
     public void szerkesztett(String ujTartalom) {
         if (this.tartalom != ujTartalom) {
