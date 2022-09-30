@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,6 +11,12 @@ public class Main {
     public static void main(String[] args) {
         bejegyzesekHozzaadasa();
         bejegyzesekFelveteleKonzolrol();
+        String fajlNev = "bejegyzesek.csv";
+        try {
+            bejegyzesekFelveteleSzovegesAllomanybol(fajlNev);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println(bejegyzesek);
     }
     private static void bejegyzesekHozzaadasa() {
@@ -31,5 +40,18 @@ public class Main {
             Bejegyzes bejegyzes = new Bejegyzes(szerzo, tartalom);
             bejegyzesek.add(bejegyzes);
         }
+    }
+    private static void bejegyzesekFelveteleSzovegesAllomanybol(String fajlNev) throws IOException {
+        FileReader fr = new FileReader(fajlNev);
+        BufferedReader br = new BufferedReader(fr);
+        String sor = br.readLine();
+        while (sor != null && !sor.isEmpty()) {
+            String[] adatok = sor.split(";");
+            Bejegyzes bejegyzes = new Bejegyzes(adatok[0], adatok[1]);
+            bejegyzesek.add(bejegyzes);
+            sor = br.readLine();
+        }
+        br.close();
+        fr.close();
     }
 }
