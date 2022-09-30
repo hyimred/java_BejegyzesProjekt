@@ -47,10 +47,8 @@ public class Bejegyzes {
     @Override
     public String toString() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String bejegyzesAdat = String.format("%s - %d - %s",
-                this.szerzo, this.likeok, this.letrejott.format(formatter));
-
-        bejegyzesAdat += String.format("\n%s",this.tartalom);
+        String bejegyzesAdat = String.format("%s - %d - %s\n%s\n",
+                this.szerzo, this.likeok, this.letrejott.format(formatter),this.tartalom);
 
         return bejegyzesAdat;
     }
