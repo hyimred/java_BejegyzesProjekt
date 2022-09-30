@@ -5,13 +5,41 @@ public class Bejegyzes {
     private String tartalom;
     private int likeok;
     private LocalDateTime letrejott;
-    private LocalDateTime szerkesztette;
+    private LocalDateTime szerkesztve;
 
     public Bejegyzes(String szerzo, String tartalom, int likeok, LocalDateTime letrejott, LocalDateTime szerkesztette) {
         this.szerzo = szerzo;
         this.tartalom = tartalom;
         this.likeok = likeok;
         this.letrejott = letrejott;
-        this.szerkesztette = szerkesztette;
+        this.szerkesztve = szerkesztve;
+    }
+
+    public String getSzerzo() {
+        return szerzo;
+    }
+
+    public String getTartalom() {
+        return tartalom;
+    }
+
+    public int getlikeok() {
+        return likeok;
+    }
+
+    public LocalDateTime getLetrejott() {
+        return letrejott;
+    }
+
+    public LocalDateTime getszerkesztve() {
+        return szerkesztve;
+    }
+
+    public void setTartalom(String tartalom) {
+        this.tartalom = tartalom;
+    }
+
+    public void like() {
+
     }
 }
